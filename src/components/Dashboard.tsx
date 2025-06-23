@@ -1,5 +1,6 @@
 "use client";
 
+import { breakFastShops } from "../helper/data";
 import { coffeeShops } from "../helper/data";
 import { events } from "../helper/data";
 import { Input } from "./ui/input";
@@ -31,6 +32,21 @@ export const Dashboard = () => {
               <h3 className="text-lg bold text-black">{event.name}</h3>
               <p className="text-gray-500 mt-3">📍{event.location}</p>
               <p className="text-gray-500 mt-3">{event.price}</p>
+            </div>
+          ))}
+        </div>
+        <h2 className="text-2xl bold mt-10">🥐 Breakfast Shops in Manhattan</h2>
+        <div className="grid grid-cols-3 gap-9 place-items-center mt-6 ">
+          {breakFastShops.map((breakFastShop) => (
+            <div
+              key={breakFastShop.id}
+              className="bg-white p-4 rounded-lg shadow-md w-65 border-2 border-black"
+            >
+              <Image src={breakFastShop.img} alt={breakFastShop.name} width={300} height={300} className="object-cover w-56 h-35 rounded-lg" />
+              <h3 className="text-lg bold text-black">{breakFastShop.name}</h3>
+              <p className="text-gray-500 mt-3">📍{breakFastShop.location}</p>
+              <p className="text-gray-500 mt-3">{breakFastShop.priceRange}</p>
+              <p className="text-gray-500 mt-3">{breakFastShop.reviews}</p>
             </div>
           ))}
         </div>
