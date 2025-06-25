@@ -35,7 +35,7 @@ export const Dashboard = () => {
             </div>
           ))}
         </div>
-        <h2 className="text-2xl bold mt-10">🥐 Breakfast Shops in Manhattan</h2>
+        <h2 className="text-2xl bold mt-10">🥐 Your Friends Favorite Breakfast Spots in Manhattan</h2>
         <div className="grid grid-cols-3 gap-9 place-items-center mt-6 ">
           {breakFastShops.map((breakFastShop) => (
             <div
