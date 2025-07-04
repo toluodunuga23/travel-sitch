@@ -34,7 +34,7 @@ export default async function Posts() {
 
   const users5 = await prisma.user.findMany({
     where: {
-      name:{not:"Alice"}
+      name: { not: "Alice" },
     },
   });
 
@@ -61,15 +61,13 @@ export default async function Posts() {
 
   // });
 
-
-
   return (
     <div className="min-h-screen  flex flex-col items-center justify-center -mt-16">
       <h1 className="text-4xl font-bold mb-8 font-[family-name:var(--font-geist-sans)] text-[#333333]">
         Posts
       </h1>
       <div className=" flex flex-col items-start justify-start font-[family-name:var(--font-geist-sans)] w-full space-y-4 ml-30">
-        {posts.map((post) => (
+        {(posts ?? []).map((post) => (
           <div
             key={post.id}
             className="bg-white p-4 rounded-lg shadow-md w-1/3 border-2 border-black flex flex-col items-start justify-start"
