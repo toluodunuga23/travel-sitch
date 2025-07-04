@@ -1,5 +1,37 @@
 import {assets} from "../../assets/assets";
 
+export const breakFastShops = [
+    {
+        id: 1,
+        img: assets.pershingSquare,
+        name: "Bubby's",
+        image: "",
+        rating: 4.5,
+        reviews: "⭐️⭐️⭐️⭐️⭐️",
+        location: "Manhattan",
+        priceRange: "$$",
+    },
+    {
+        id: 2,
+        img: assets.waffleBreakfast,
+        name: "Andrews NYC Diner",
+        rating: 4.8,
+        reviews: "⭐️⭐️⭐️⭐️",
+        location: "Manhattan",
+        priceRange: "$",
+    },
+    {
+        id: 3,
+        img: assets.frenchToast,
+        name: "Pershing Square",
+        rating: 4.5,
+        reviews: "⭐️⭐️⭐️⭐️⭐️",
+        location: "Manhattan",
+        priceRange: "$",
+    }
+]
+
+
 export const coffeeShops = [
     {
         id: 1,
