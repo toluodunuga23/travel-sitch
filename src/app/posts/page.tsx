@@ -1,5 +1,6 @@
 "use client";
 import { trpcApp } from "@/utils/trpcApp";
+import Link from "next/link";
 
 export default function Posts() {
   //Using TRPC
@@ -22,7 +23,10 @@ export default function Posts() {
       <h1 className="text-4xl font-bold mb-8 font-[family-name:var(--font-geist-sans)] text-[#333333]">
         Posts
       </h1>
-      <div className=" flex flex-col items-start justify-start font-[family-name:var(--font-geist-sans)] w-full space-y-4 ml-30">
+      <div className="flex justify-start w-full ml-30">
+      <Link href="/create-post" className="text-blue-500 rounded-md p-2 border-2 border-blue-500">Create Post</Link>
+        </div>
+      <div className=" flex flex-col items-start justify-start font-[family-name:var(--font-geist-sans)] w-full space-y-4 ml-30 mt-4">
         {(posts ?? []).map((post) => (
           <div
             key={post.id}

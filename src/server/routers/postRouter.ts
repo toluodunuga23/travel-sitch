@@ -1,6 +1,8 @@
 import { router, procedure } from "../trpc";
 import { z } from "zod";
 import prisma from "../../lib/prisma";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export const postRouter = router({
   createPost: procedure
@@ -13,9 +15,18 @@ export const postRouter = router({
     )
     .mutation(async ({ input }) => {
       const post = await prisma.post.create({
-        data: input,
+        data: {
+          title: input.title,
+          content: input.content,
+          authorId: input.authorId,
+        },
       });
-      return post;
+      return {
+        success: true,
+        message: "Post created successfully",
+        post,
+      };
+
     }),
   getPosts: procedure.query(async () => {
     const posts = await prisma.post.findMany({
