@@ -10,6 +10,7 @@ import { increment, setValue } from "@/lib/features/counter/counterSlice";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { useDispatch } from "react-redux";
+import { Header } from "./Header";
 export const Dashboard = () => {
   const hello = trpcApp.hello.useQuery({ name: "Tolu" });
   const dispatch = useDispatch();
@@ -22,23 +23,24 @@ export const Dashboard = () => {
 
   return (
     <>
+      <Header />
       <div className="flex flex-col items-start justify-start ml-70 mt-10 ">
         <div className="flex items-center justify-between w-full">
           <div>
             <h1 className="text-2xl bold ">
               Good Morning, {hello.data.greeting} 👋
             </h1>
-            <h1>Count: {count}</h1>
+            {/* <h1>Count: {count}</h1> */}
             <p className="text-gray-500 mt-3">
               Here's what's going on in the city
             </p>
-            <button onClick={() => dispatch(increment())}>Increment</button>
+            {/* <button onClick={() => dispatch(increment())}>Increment</button> */}
           </div>
-          <div className="flex justify-end w-65 mr-12">
+          {/* <div className="flex justify-end w-65 mr-12">
             <div className="mt-6 w-65">
               <Input placeholder="Search" className="border-2 border-black" />
             </div>
-          </div>
+          </div> */}
         </div>
         <h2 className="text-2xl bold mt-10">🎤 Events Today</h2>
         <div className="grid grid-cols-3 gap-9 place-items-center mt-6 ">
