@@ -6,11 +6,20 @@ import { events } from "../helper/data";
 import { Input } from "./ui/input";
 import { trpcApp } from "@/utils/trpcApp";
 import Image from "next/image";
+import { increment, setValue } from "@/lib/features/counter/counterSlice";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
+import { useDispatch } from "react-redux";
 export const Dashboard = () => {
   const hello = trpcApp.hello.useQuery({ name: "Tolu" });
+  const dispatch = useDispatch();
+  const count = useSelector((state: RootState) => state.counter.value);
+
   if (!hello.data) {
     return <div>Loading...</div>;
   }
+
+
   return (
     <>
       <div className="flex flex-col items-start justify-start ml-70 mt-10 ">
@@ -19,9 +28,11 @@ export const Dashboard = () => {
             <h1 className="text-2xl bold ">
               Good Morning, {hello.data.greeting} 👋
             </h1>
+            <h1>Count: {count}</h1>
             <p className="text-gray-500 mt-3">
               Here's what's going on in the city
             </p>
+            <button onClick={() => dispatch(increment())}>Increment</button>
           </div>
           <div className="flex justify-end w-65 mr-12">
             <div className="mt-6 w-65">
