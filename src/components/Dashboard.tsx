@@ -11,24 +11,24 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { useDispatch } from "react-redux";
 import { Header } from "./Header";
+import { getTimeFormat } from "@/hooks/timeFormat";
 export const Dashboard = () => {
+  const {greeting} = getTimeFormat();
   const hello = trpcApp.hello.useQuery({ name: "Tolu" });
   const dispatch = useDispatch();
   const count = useSelector((state: RootState) => state.counter.value);
-
   if (!hello.data) {
     return <div>Loading...</div>;
   }
 
-
   return (
     <>
       <Header />
-      <div className="flex flex-col items-start justify-start ml-70 mt-10 ">
+      <div className="flex flex-col items-start justify-start ml-30 mt-10 ">
         <div className="flex items-center justify-between w-full">
           <div>
             <h1 className="text-2xl bold ">
-              Good Morning, {hello.data.greeting} 👋
+              {greeting}, {hello.data.greeting} 👋
             </h1>
             {/* <h1>Count: {count}</h1> */}
             <p className="text-gray-500 mt-3">
@@ -100,6 +100,7 @@ export const Dashboard = () => {
             </div>
           ))}
         </div>
+        <div className="mt-30"></div>
       </div>
     </>
   );

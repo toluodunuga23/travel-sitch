@@ -7,8 +7,8 @@ import { Search, Menu, User, Bell } from "lucide-react";
 import { useState } from "react";
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
