@@ -26,11 +26,11 @@ export default function Posts() {
       <div className="flex justify-start w-full ml-30">
       <Link href="/create-post" className="text-blue-500 rounded-md p-2 border-2 border-blue-500">Create Post</Link>
         </div>
-      <div className=" flex flex-col items-start justify-start font-[family-name:var(--font-geist-sans)] w-full space-y-4 ml-30 mt-4">
+      <div className=" grid grid-cols-3 gap-4 items-start justify-start font-[family-name:var(--font-geist-sans)] w-full space-y-4 ml-30 mt-4">
         {(posts ?? []).map((post) => (
           <div
             key={post.id}
-            className="bg-white p-4 rounded-lg shadow-md w-1/3 border-2 border-black flex flex-col items-start justify-start"
+            className="bg-white p-4 rounded-lg shadow-md w-2/3 border-2 border-black flex flex-col items-start justify-start"
           >
             <span className="text-sm text-gray-600">{post.author?.name}</span>
             <span className="font-semibold ">{post.title}</span>
